@@ -1,10 +1,13 @@
 .createNote-Container {
   background: rgb(218, 218, 218);
+
   width: 80%;
   margin: auto;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
+
 .noteTitlePlaceholder {
   position: absolute;
   width: 100%;
@@ -13,7 +16,7 @@
   padding-left: 0.5rem;
 }
 .noteTitle {
-  z-index: 1;
+  /* z-index: 1; */
   outline: none;
   padding-left: 0.5rem;
 }

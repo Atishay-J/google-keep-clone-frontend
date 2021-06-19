@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { TopNavbar, BottomNavbar, Dashboard } from "./components";
+import { Dashboard } from "./components";
 import "./App.css";
 
 function App() {
@@ -7,7 +7,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/test" element={<BottomNavbar />} />
       </Routes>
     </div>
   );
