@@ -1,0 +1,34 @@
+.createNote-Container {
+  background: rgb(218, 218, 218);
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.noteTitlePlaceholder {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  outline: none;
+  padding-left: 0.5rem;
+}
+.noteTitle {
+  z-index: 1;
+  outline: none;
+  padding-left: 0.5rem;
+}
+.noteTextBoxPlaceholder {
+  width: 100%;
+  position: absolute;
+  pointer-events: none;
+  padding-left: 0.5rem;
+  outline: none;
+}
+
+.noteTextBox {
+  resize: none;
+  overflow: hidden;
+  z-index: 1;
+  padding-left: 0.5rem;
+  outline: none;
+}
