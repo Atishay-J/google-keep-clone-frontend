@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNotes } from "../Context/NotesContext";
 import "./createNotes.css";
 
 const CreateNote = () => {
@@ -7,13 +8,13 @@ const CreateNote = () => {
     titlePlaceholder: true,
     notePlaceholder: true,
   });
-
   const [noteData, setNoteData] = useState({ title: "", note: "" });
 
-  const toggleNote = () => {
-    console.log("Toggling Note");
-    setShowNote(!showNote);
-  };
+  const { state, dispatch } = useNotes();
+
+  useEffect(() => {
+    console.log("state context", state);
+  }, [state]);
 
   const togglePlaceholders = (note, placeholder) => {
     note.length > 0
@@ -31,6 +32,14 @@ const CreateNote = () => {
     const title = e.target.textContent;
     togglePlaceholders(title, "titlePlaceholder");
     setNoteData({ ...noteData, title });
+  };
+
+  const saveNote = () => {
+    console.log("Note saved");
+    dispatch({
+      type: "SAVE_NOTE",
+      payload: { noteTitle: noteData.title, noteText: noteData.note },
+    });
   };
 
   return (
@@ -75,12 +84,22 @@ const CreateNote = () => {
           onInput={(e) => takeNote(e)}
         ></div>
       </div>
-      <h4
-        onClick={() => setShowNote(false)}
-        style={{ display: showNote ? "block" : "none" }}
+      <div
+        className="notesOptions"
+        style={{ display: showNote ? "flex" : "none" }}
       >
-        Close
-      </h4>
+        <div className="noteSaveOptions">
+          <h4
+            className="noteClose noteOptionBtn"
+            onClick={() => setShowNote(false)}
+          >
+            Close
+          </h4>
+          <h4 className="noteSave noteOptionBtn" onClick={saveNote}>
+            Save
+          </h4>
+        </div>
+      </div>
     </div>
   );
 };

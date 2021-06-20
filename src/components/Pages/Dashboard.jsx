@@ -1,4 +1,4 @@
-import { TopNavbar, BottomNavbar, CreateNote } from "../index";
+import { TopNavbar, BottomNavbar, CreateNote, ShowNotes } from "../index";
 const Dashboard = () => {
   return (
     <div className="dashboard-Container">
@@ -7,6 +7,7 @@ const Dashboard = () => {
       <h1>I am dashboard</h1>
       <CreateNote />
       <BottomNavbar />
+      <ShowNotes />
     </div>
   );
 };

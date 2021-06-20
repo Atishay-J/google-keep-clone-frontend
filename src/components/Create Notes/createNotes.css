@@ -1,6 +1,5 @@
 .createNote-Container {
   background: rgb(218, 218, 218);
-
   width: 80%;
   margin: auto;
   display: flex;
@@ -34,4 +33,30 @@
   z-index: 1;
   padding-left: 0.5rem;
   outline: none;
+}
+.notesOptions {
+  background: yellow;
+  justify-content: flex-end;
+}
+.noteSaveOptions {
+  display: flex;
+  background: rgb(172, 103, 103);
+  justify-content: space-around;
+  justify-self: flex-end;
+  align-self: flex-end;
+  width: 10rem;
+}
+.noteOptionBtn {
+  min-width: 2.5rem;
+  cursor: pointer;
+  text-align: center;
+  padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+  border-radius: 20px;
+}
+.noteSave {
+  background: rgb(235, 175, 12);
+  border: 3px solid rgb(235, 175, 12);
+}
+.noteClose {
+  border: 3px solid rgb(91, 177, 91);
 }
