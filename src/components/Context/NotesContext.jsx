@@ -1,39 +1,40 @@
 import { createContext, useContext, useReducer } from "react";
 import { getNotes, saveNote } from "../Utils/ServerCalls";
 
-const initState = [
-  {
-    noteTitle: "",
-    noteText: "",
-    label: "",
-    isPinned: false,
-    noteColor: "",
-  },
-];
+const initState = [];
 
 const notesReducer = (state, action) => {
   console.log("Action Called", action);
   console.log("state from context", state);
 
   switch (action.type) {
-    case "SAVE_NOTE": {
-      const response = saveNote(action.payload);
+    case "SAVE_NOTE":
+      return [
+        ...state,
+        {
+          noteTitle: action.payload.noteTitle,
+          noteText: action.payload.noteText,
+          label: action.payload.label,
+          isPinned: action.payload.isPinned,
+          noteColor: action.payload.noteColor,
+        },
+      ];
+    case "TOGGLE_PIN":
+      console.log("Toggle Pinned Called", action.payload);
+      const curNote = state[action.payload.index];
+      const filteredNotes = state.filter(
+        (note, index) => index !== action.payload.index
+      );
 
-      if (response.status === 200) {
-        console.log("Server call succeed");
-        return [
-          ...state,
-          {
-            noteTitle: action.payload.noteTitle,
-            noteText: action.payload.noteText,
-            label: action.payload.label,
-            isPinned: action.payload.isPinned,
-            noteColor: action.payload.noteColor,
-          },
-        ];
-      }
-      return state;
-    }
+      console.log("Current Notes", curNote);
+
+      console.log("Filtered Notes", filteredNotes);
+
+      return [
+        ...filteredNotes,
+        { ...curNote, isPinned: action.payload.isPinned },
+      ];
+
     default:
       return state;
   }

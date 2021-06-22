@@ -2,13 +2,19 @@ import { useEffect, useState } from "react";
 import { useNotes } from "../Context/NotesContext";
 import "./createNotes.css";
 
+import { fakeServer } from "../Utils/ServerCalls";
+
 const CreateNote = () => {
   const [showNote, setShowNote] = useState(false);
   const [showPlaceholders, setShowPlaceholders] = useState({
     titlePlaceholder: true,
     notePlaceholder: true,
   });
-  const [noteData, setNoteData] = useState({ title: "", note: "" });
+  const [noteData, setNoteData] = useState({
+    title: "",
+    note: "",
+    isPinned: false,
+  });
 
   const { state, dispatch } = useNotes();
 
@@ -35,15 +41,37 @@ const CreateNote = () => {
   };
 
   const saveNote = () => {
-    console.log("Note saved");
-    dispatch({
-      type: "SAVE_NOTE",
-      payload: { noteTitle: noteData.title, noteText: noteData.note },
+    fakeServer(noteData.title, noteData.note).then((res) => {
+      console.log("Response from server", res);
+      if (res.status === 200) {
+        console.log("Note saved");
+        dispatch({
+          type: "SAVE_NOTE",
+          payload: {
+            noteTitle: noteData.title,
+            noteText: noteData.note,
+            isPinned: noteData.isPinned,
+          },
+        });
+      }
+      console.log("Server call FAilde");
     });
   };
 
   return (
     <div className="createNote-Container">
+      <div
+        className="crateNotePin-wrapper"
+        style={{ display: showNote ? "block" : "none" }}
+      >
+        <button
+          onClick={() =>
+            setNoteData({ ...noteData, isPinned: !noteData.isPinned })
+          }
+        >
+          {noteData.isPinned ? "Pinned" : "Pin"}
+        </button>
+      </div>
       <div
         className="noteTitleWrapper"
         style={{ display: showNote ? "block" : "none" }}

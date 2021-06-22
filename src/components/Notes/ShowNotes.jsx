@@ -1,19 +1,24 @@
 import { useNotes } from "../Context/NotesContext";
-import { NoteCard } from "../index";
+import RegularNotes from "./RegularNotes";
+import PinnedNotes from "./PinnedNotes";
 
 const ShowNotes = () => {
   const { state } = useNotes();
+  console.log(
+    "Found Pinned",
+    state?.find((note) => note.isPinned)
+  );
   return (
     <div className="showNotes-Container">
-      {state.map((item) => (
-        <NoteCard
-          title={item.noteTitle}
-          note={item.noteText}
-          label={item.label}
-          color={item.noteColor}
-          isPinned={item.isPinned}
-        />
-      ))}
+      {state?.find((note) => note.isPinned) && (
+        <div className="pinnedNotes-Wrapper">
+          <PinnedNotes />
+        </div>
+      )}
+
+      <div className="regularNotes-Wrapper">
+        <RegularNotes />
+      </div>
     </div>
   );
 };
