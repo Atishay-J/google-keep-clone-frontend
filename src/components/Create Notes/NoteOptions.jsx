@@ -6,10 +6,6 @@ import { useEffect } from "react";
 const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
   const { dispatch } = useNotes();
 
-  useEffect(() => {
-    console.log("Notes Data", noteData);
-  }, [noteData]);
-
   const saveNote = () => {
     fakeServer(noteData.title, noteData.note).then((res) => {
       console.log("Response from server", res);
@@ -30,6 +26,7 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
     setNoteData({
       title: "",
       note: "",
+      color: "",
       isPinned: false,
     });
     setShowNote(false);

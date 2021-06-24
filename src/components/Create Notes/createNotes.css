@@ -51,6 +51,9 @@
   padding: 0.2rem 0.8rem 0.2rem 0.8rem;
   border-radius: 20px;
 }
+.noteColorPicker-Wrapper {
+  position: absolute;
+}
 .noteColorPicker {
   background: purple;
   display: flex;
@@ -60,6 +63,8 @@
   padding: 0.8rem;
   border-radius: 20px;
   width: 10rem;
+  position: relative;
+  cursor: pointer;
 }
 .colorPickerPallete {
   width: 2.2rem;

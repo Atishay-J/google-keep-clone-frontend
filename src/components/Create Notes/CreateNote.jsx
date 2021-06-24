@@ -22,7 +22,10 @@ const CreateNote = () => {
   };
 
   return (
-    <div className="createNote-Container">
+    <div
+      className="createNote-Container"
+      style={{ background: noteData.color }}
+    >
       <ToggleNotePin
         showNote={showNote}
         noteData={noteData}
