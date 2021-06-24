@@ -1,44 +1,23 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import { useNotes } from "../Context/NotesContext";
 import "./createNotes.css";
 
 import { fakeServer } from "../Utils/ServerCalls";
 
+import NoteOptions from "./NoteOptions";
+
 const CreateNote = () => {
   const [showNote, setShowNote] = useState(false);
-  const [showPlaceholders, setShowPlaceholders] = useState({
-    titlePlaceholder: true,
-    notePlaceholder: true,
-  });
+
   const [noteData, setNoteData] = useState({
     title: "",
     note: "",
     isPinned: false,
   });
 
-  const { state, dispatch } = useNotes();
+  let noteRef = useRef(null);
 
-  useEffect(() => {
-    console.log("state context", state);
-  }, [state]);
-
-  const togglePlaceholders = (note, placeholder) => {
-    note.length > 0
-      ? setShowPlaceholders({ ...showPlaceholders, [placeholder]: false })
-      : setShowPlaceholders({ ...showPlaceholders, [placeholder]: true });
-  };
-
-  const takeNote = (e) => {
-    const note = e.target.textContent;
-    togglePlaceholders(note, "notePlaceholder");
-    setNoteData({ ...noteData, note });
-  };
-
-  const takeTitle = (e) => {
-    const title = e.target.textContent;
-    togglePlaceholders(title, "titlePlaceholder");
-    setNoteData({ ...noteData, title });
-  };
+  const { dispatch } = useNotes();
 
   const saveNote = () => {
     fakeServer(noteData.title, noteData.note).then((res) => {
@@ -56,6 +35,17 @@ const CreateNote = () => {
       }
       console.log("Server call FAilde");
     });
+    setNoteData({
+      title: "",
+      note: "",
+      isPinned: false,
+    });
+  };
+
+  const adjustNoteHeight = () => {
+    noteRef.style.height = "15px";
+    let scrollHeight = noteRef.scrollHeight;
+    noteRef.style.height = scrollHeight + "px";
   };
 
   return (
@@ -72,62 +62,38 @@ const CreateNote = () => {
           {noteData.isPinned ? "Pinned" : "Pin"}
         </button>
       </div>
-      <div
-        className="noteTitleWrapper"
+
+      <input
+        className="noteTitleInput"
         style={{ display: showNote ? "block" : "none" }}
-      >
-        <div
-          className="noteTitlePlaceholder"
-          style={{
-            display:
-              showPlaceholders.titlePlaceholder === false ? "none" : "block",
-          }}
-        >
-          Title
-        </div>
-        <div
-          className="noteTitle"
-          contentEditable="true"
-          role="textbox"
-          aria-placeholder="Title"
-          onInput={(e) => takeTitle(e)}
-        ></div>
+        type="text"
+        placeholder="Title.."
+        value={noteData.title}
+        onChange={(e) =>
+          setNoteData((prevData) => {
+            return { ...prevData, title: e.target.value };
+          })
+        }
+      />
+      <div className="noteBody-Wrapper" onFocus={() => setShowNote(true)}>
+        <textarea
+          className="noteBodyInput"
+          placeholder="Take a note..."
+          value={noteData.note}
+          ref={(ref) => (noteRef = ref)}
+          onChange={(e) =>
+            setNoteData((prevData) => {
+              adjustNoteHeight();
+              return { ...prevData, note: e.target.value };
+            })
+          }
+        />
       </div>
-      <div className="textBoxWrapper" onFocus={() => setShowNote(true)}>
-        <div
-          className="noteTextBoxPlaceholder"
-          style={{
-            display:
-              showPlaceholders.notePlaceholder === false ? "none" : "block",
-          }}
-        >
-          Take a note...
-        </div>
-        <div
-          className="noteTextBox"
-          contentEditable="true"
-          role="textbox"
-          aria-multiline="true"
-          aria-placeholder="Take a Note..."
-          onInput={(e) => takeNote(e)}
-        ></div>
-      </div>
-      <div
-        className="notesOptions"
-        style={{ display: showNote ? "flex" : "none" }}
-      >
-        <div className="noteSaveOptions">
-          <h4
-            className="noteClose noteOptionBtn"
-            onClick={() => setShowNote(false)}
-          >
-            Close
-          </h4>
-          <h4 className="noteSave noteOptionBtn" onClick={saveNote}>
-            Save
-          </h4>
-        </div>
-      </div>
+      <NoteOptions
+        showNote={showNote}
+        setShowNote={setShowNote}
+        saveNote={saveNote}
+      />
     </div>
   );
 };
