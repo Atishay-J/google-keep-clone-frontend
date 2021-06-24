@@ -1,4 +1,4 @@
-const NoteOptions = ({ showNote, setShowNote, saveNote }) => {
+const NoteOptions = ({ showNote, saveNote }) => {
   console.log("SHow notre from OPtions", showNote);
   return (
     <div
@@ -6,15 +6,9 @@ const NoteOptions = ({ showNote, setShowNote, saveNote }) => {
       style={{ display: showNote ? "flex" : "none" }}
     >
       <div className="noteSaveOptions">
-        <h4
-          className="noteClose noteOptionBtn"
-          onClick={() => setShowNote(false)}
-        >
+        <button className="noteSave noteOptionBtn" onClick={saveNote}>
           Close
-        </h4>
-        <h4 className="noteSave noteOptionBtn" onClick={saveNote}>
-          Save
-        </h4>
+        </button>
       </div>
     </div>
   );

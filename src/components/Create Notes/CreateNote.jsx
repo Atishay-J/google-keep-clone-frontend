@@ -40,6 +40,7 @@ const CreateNote = () => {
       note: "",
       isPinned: false,
     });
+    setShowNote(false);
   };
 
   const adjustNoteHeight = () => {
