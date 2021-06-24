@@ -1,14 +1,11 @@
 import { useRef, useState } from "react";
-import { useNotes } from "../Context/NotesContext";
 import "./createNotes.css";
 
-import { fakeServer } from "../Utils/ServerCalls";
-
 import NoteOptions from "./NoteOptions";
+import ToggleNotePin from "./ToggleNotePin";
 
 const CreateNote = () => {
   const [showNote, setShowNote] = useState(false);
-
   const [noteData, setNoteData] = useState({
     title: "",
     note: "",
@@ -16,32 +13,6 @@ const CreateNote = () => {
   });
 
   let noteRef = useRef(null);
-
-  const { dispatch } = useNotes();
-
-  const saveNote = () => {
-    fakeServer(noteData.title, noteData.note).then((res) => {
-      console.log("Response from server", res);
-      if (res.status === 200) {
-        console.log("Note saved");
-        dispatch({
-          type: "SAVE_NOTE",
-          payload: {
-            noteTitle: noteData.title,
-            noteText: noteData.note,
-            isPinned: noteData.isPinned,
-          },
-        });
-      }
-      console.log("Server call FAilde");
-    });
-    setNoteData({
-      title: "",
-      note: "",
-      isPinned: false,
-    });
-    setShowNote(false);
-  };
 
   const adjustNoteHeight = () => {
     noteRef.style.height = "15px";
@@ -51,19 +22,11 @@ const CreateNote = () => {
 
   return (
     <div className="createNote-Container">
-      <div
-        className="crateNotePin-wrapper"
-        style={{ display: showNote ? "block" : "none" }}
-      >
-        <button
-          onClick={() =>
-            setNoteData({ ...noteData, isPinned: !noteData.isPinned })
-          }
-        >
-          {noteData.isPinned ? "Pinned" : "Pin"}
-        </button>
-      </div>
-
+      <ToggleNotePin
+        showNote={showNote}
+        noteData={noteData}
+        setNoteData={setNoteData}
+      />
       <input
         className="noteTitleInput"
         style={{ display: showNote ? "block" : "none" }}
@@ -93,7 +56,8 @@ const CreateNote = () => {
       <NoteOptions
         showNote={showNote}
         setShowNote={setShowNote}
-        saveNote={saveNote}
+        noteData={noteData}
+        setNoteData={setNoteData}
       />
     </div>
   );
