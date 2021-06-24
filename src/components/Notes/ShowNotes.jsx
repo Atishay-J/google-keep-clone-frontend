@@ -1,6 +1,7 @@
 import { useNotes } from "../Context/NotesContext";
 import RegularNotes from "./RegularNotes";
 import PinnedNotes from "./PinnedNotes";
+import "./notes.css";
 
 const ShowNotes = () => {
   const { state } = useNotes();
@@ -10,15 +11,9 @@ const ShowNotes = () => {
   );
   return (
     <div className="showNotes-Container">
-      {state?.find((note) => note.isPinned) && (
-        <div className="pinnedNotes-Wrapper">
-          <PinnedNotes />
-        </div>
-      )}
+      {state?.find((note) => note.isPinned) && <PinnedNotes />}
 
-      <div className="regularNotes-Wrapper">
-        <RegularNotes />
-      </div>
+      <RegularNotes />
     </div>
   );
 };

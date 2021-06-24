@@ -26,10 +26,6 @@ const notesReducer = (state, action) => {
         (note, index) => index !== action.payload.index
       );
 
-      console.log("Current Notes", curNote);
-
-      console.log("Filtered Notes", filteredNotes);
-
       return [
         ...filteredNotes,
         { ...curNote, isPinned: action.payload.isPinned },

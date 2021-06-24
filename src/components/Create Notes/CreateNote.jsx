@@ -9,6 +9,7 @@ const CreateNote = () => {
   const [noteData, setNoteData] = useState({
     title: "",
     note: "",
+    color: "",
     isPinned: false,
   });
 

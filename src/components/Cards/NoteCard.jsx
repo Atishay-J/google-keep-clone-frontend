@@ -4,7 +4,7 @@ const NoteCard = ({ title, note, isPinned, color, label, index }) => {
   const { state, dispatch } = useNotes();
 
   return (
-    <div className="noteCardContainer">
+    <div className="noteCardContainer" style={{ background: color }}>
       <button
         onClick={() =>
           dispatch({

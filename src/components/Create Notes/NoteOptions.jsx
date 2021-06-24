@@ -1,10 +1,14 @@
 import { fakeServer } from "../Utils/ServerCalls";
 import { useNotes } from "../Context/NotesContext";
+import NoteColorPicker from "./NoteColorPicker";
+import { useEffect } from "react";
 
 const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
-  console.log("SHow notre from OPtions", showNote);
-
   const { dispatch } = useNotes();
+
+  useEffect(() => {
+    console.log("Notes Data", noteData);
+  }, [noteData]);
 
   const saveNote = () => {
     fakeServer(noteData.title, noteData.note).then((res) => {
@@ -16,11 +20,12 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
           payload: {
             noteTitle: noteData.title,
             noteText: noteData.note,
+            noteColor: noteData.color,
             isPinned: noteData.isPinned,
           },
         });
       }
-      console.log("Server call FAilde");
+      console.log("Server call Failed");
     });
     setNoteData({
       title: "",
@@ -34,6 +39,7 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
       className="notesOptions"
       style={{ display: showNote ? "flex" : "none" }}
     >
+      <NoteColorPicker setNoteData={setNoteData} />
       <div className="noteSaveOptions">
         <button className="noteSave noteOptionBtn" onClick={saveNote}>
           Close

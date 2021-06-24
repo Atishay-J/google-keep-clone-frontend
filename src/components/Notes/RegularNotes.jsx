@@ -6,20 +6,22 @@ const RegularNotes = () => {
   return (
     <div className="regularNotes-Container">
       <h1>I am regular notes section</h1>
-      {state?.map(
-        (note, index) =>
-          note.isPinned === false && (
-            <NoteCard
-              key={index}
-              title={note.noteTitle}
-              note={note.noteText}
-              label={note.label}
-              color={note.noteColor}
-              isPinned={note.isPinned}
-              index={index}
-            />
-          )
-      )}
+      <div className="notesWrapper">
+        {state?.map(
+          (note, index) =>
+            note.isPinned === false && (
+              <NoteCard
+                key={index}
+                title={note.noteTitle}
+                note={note.noteText}
+                label={note.label}
+                color={note.noteColor}
+                isPinned={note.isPinned}
+                index={index}
+              />
+            )
+        )}
+      </div>
     </div>
   );
 };

@@ -18,11 +18,7 @@
   margin-top: 1rem;
   font-size: 0.95rem;
 }
-.noteBody-Wrapper {
-  /* background: red; */
-  /* margin-top: 0.8rem; */
-  /* background: red; */
-}
+
 .noteBodyInput {
   resize: none;
   overflow: hidden;
@@ -35,7 +31,7 @@
   font-size: 0.95rem;
 }
 .notesOptions {
-  background: yellow;
+  background: rgb(145, 145, 145);
   justify-content: flex-end;
 }
 .noteSaveOptions {
@@ -46,17 +42,28 @@
   align-self: flex-end;
   width: 10rem;
 }
-.noteOptionBtn {
+
+.noteClose {
+  border: 3px solid rgb(91, 177, 91);
   min-width: 2.5rem;
   cursor: pointer;
   text-align: center;
   padding: 0.2rem 0.8rem 0.2rem 0.8rem;
   border-radius: 20px;
 }
-.noteSave {
-  background: rgb(235, 175, 12);
-  border: 3px solid rgb(235, 175, 12);
+.noteColorPicker {
+  background: purple;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 20px;
+  width: 10rem;
 }
-.noteClose {
-  border: 3px solid rgb(91, 177, 91);
+.colorPickerPallete {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50px;
+  margin-top: 0.5rem;
 }
