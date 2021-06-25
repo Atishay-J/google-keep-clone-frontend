@@ -1,8 +1,8 @@
 import { useRef, useState } from "react";
 import "./createNotes.css";
 
-import NoteOptions from "./NoteOptions";
-import ToggleNotePin from "./ToggleNotePin";
+import NoteOptions from "./Note Options/NoteOptions";
+import ToggleNotePin from "./Note Options/ToggleNotePin";
 
 const CreateNote = () => {
   const [showNote, setShowNote] = useState(false);

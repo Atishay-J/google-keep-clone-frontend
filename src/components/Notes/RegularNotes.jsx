@@ -5,7 +5,7 @@ const RegularNotes = () => {
   console.log("State is ", state);
   return (
     <div className="regularNotes-Container">
-      <h1>I am regular notes section</h1>
+      <h1 className="notesSectionTitle">Others</h1>
       <div className="notesWrapper">
         {state?.map(
           (note, index) =>

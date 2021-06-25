@@ -1,0 +1,25 @@
+.notePin-Wrapper {
+  align-self: flex-end;
+  margin-right: 0.8rem;
+  margin-top: 0.3rem;
+}
+.notePinIcon {
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+.notesOptions {
+  justify-content: flex-end;
+}
+.noteSave-Wrapper {
+  display: flex;
+  background: rgb(172, 103, 103);
+  justify-content: center;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+.noteSave {
+  border: none;
+  width: 4rem;
+  height: 1.5rem;
+  cursor: pointer;
+}

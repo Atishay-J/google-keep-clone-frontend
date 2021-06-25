@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { Palette } from "react-bootstrap-icons";
+
+import "./colorPicker.css";
 
 const NoteColorPicker = ({ setNoteData }) => {
-  const [showColorPicker, setShowColorPicker] = useState(false);
   const colors = [
     { color: "red" },
     { color: "green" },
@@ -11,11 +12,8 @@ const NoteColorPicker = ({ setNoteData }) => {
     { color: "peru" },
   ];
   return (
-    <div className="noteColorPicket-Wrapper">
-      <div
-        className="noteColorPicker"
-        style={{ display: showColorPicker ? "flex" : "none" }}
-      >
+    <div className="noteColorPicker-Wrapper">
+      <div className="noteColorPicker">
         {colors.map(({ color }, index) => (
           <div
             key={index}
@@ -30,15 +28,7 @@ const NoteColorPicker = ({ setNoteData }) => {
         ))}
       </div>
 
-      <div
-        className="noteColorPickerIcon"
-        onPointerOver={() => {
-          console.log("Mouse Aaaaayyaa");
-          setShowColorPicker(true);
-        }}
-      >
-        <h3>Icon</h3>
-      </div>
+      <Palette className="noteColorPickerIcon" />
     </div>
   );
 };

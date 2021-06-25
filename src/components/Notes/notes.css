@@ -3,3 +3,15 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.pinnedNotes-Container {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+.regularNotes-Container {
+  border-top: 1px solid rgba(0, 128, 0, 0.267);
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+}
+.notesSectionTitle {
+  font-size: 0.9rem;
+}

@@ -1,11 +1,14 @@
 import { useNotes } from "../Context/NotesContext";
+import { Pin, PinFill } from "react-bootstrap-icons";
 import "./noteCard.css";
+
 const NoteCard = ({ title, note, isPinned, color, label, index }) => {
-  const { state, dispatch } = useNotes();
+  const { dispatch } = useNotes();
 
   return (
     <div className="noteCardContainer" style={{ background: color }}>
-      <button
+      <div
+        className="notePin-Wrapper"
         onClick={() =>
           dispatch({
             type: "TOGGLE_PIN",
@@ -13,8 +16,12 @@ const NoteCard = ({ title, note, isPinned, color, label, index }) => {
           })
         }
       >
-        {isPinned ? "unpin" : "pin"}
-      </button>
+        {isPinned ? (
+          <PinFill className="notePinIcon" />
+        ) : (
+          <Pin className="notePinIcon" />
+        )}
+      </div>
 
       <h1 className="noteCardTitle">{title}</h1>
       <h3 className="noteCardNote">{note}</h3>

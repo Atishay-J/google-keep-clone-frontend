@@ -1,0 +1,37 @@
+.noteColorPicker-Wrapper {
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  position: relative;
+}
+
+.noteColorPicker {
+  background: rgb(29, 28, 28);
+  width: 7rem;
+  border-radius: 20px;
+  padding: 0.5rem;
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 1.5rem;
+  left: -1rem;
+}
+.noteColorPickerIcon {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.noteColorPicker-Wrapper:hover .noteColorPicker {
+  display: flex !important;
+}
+
+.colorPickerPallete {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid rgb(219, 217, 217);
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 0.25rem;
+}

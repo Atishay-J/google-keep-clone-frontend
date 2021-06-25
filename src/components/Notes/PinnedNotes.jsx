@@ -5,7 +5,7 @@ const PinnedNotes = () => {
   const { state } = useNotes();
   return (
     <div className="pinnedNotes-Container">
-      <h1>Pinned </h1>
+      <h1 className="notesSectionTitle">Pinned </h1>
       <div className="notesWrapper">
         {state?.map(
           (note, index) =>
