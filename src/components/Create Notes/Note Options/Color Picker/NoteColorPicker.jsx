@@ -1,16 +1,8 @@
 import { Palette } from "react-bootstrap-icons";
-
+import { colors } from "./Colors";
 import "./colorPicker.css";
 
 const NoteColorPicker = ({ setNoteData }) => {
-  const colors = [
-    { color: "#C42021" },
-    { color: "green" },
-    { color: "#8C7051" },
-    { color: "#F18F01" },
-    { color: "blue" },
-    { color: "peru" },
-  ];
   return (
     <div className="noteColorPicker-Wrapper">
       <div className="noteColorPicker">

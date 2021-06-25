@@ -23,7 +23,7 @@
   background: transparent;
   /* color: var(--font-col-gray); */
   /* color: #d75059; */
-  color: #9fc3d4;
+  color: var(--font-col-white);
   font-size: 1rem;
   font-weight: 700;
   width: 4rem;
