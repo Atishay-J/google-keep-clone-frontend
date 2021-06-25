@@ -3,11 +3,9 @@ const Dashboard = () => {
   return (
     <div className="dashboard-Container">
       <TopNavbar />
-
-      <h1>I am dashboard</h1>
       <CreateNote />
-      <BottomNavbar />
       <ShowNotes />
+      <BottomNavbar />
     </div>
   );
 };

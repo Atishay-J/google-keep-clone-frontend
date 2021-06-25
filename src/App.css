@@ -1,0 +1,5 @@
+.App {
+  background: var(--bg-col);
+  min-height: 100vh;
+  padding-bottom: 6rem;
+}

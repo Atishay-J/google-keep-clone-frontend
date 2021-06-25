@@ -1,5 +1,5 @@
 import { useNotes } from "../Context/NotesContext";
-import { Pin, PinFill } from "react-bootstrap-icons";
+import { Pin, PinFill, Trash } from "react-bootstrap-icons";
 import "./noteCard.css";
 
 const NoteCard = ({ title, note, isPinned, color, label, index }) => {
@@ -25,6 +25,10 @@ const NoteCard = ({ title, note, isPinned, color, label, index }) => {
 
       <h1 className="noteCardTitle">{title}</h1>
       <h3 className="noteCardNote">{note}</h3>
+      <Trash
+        className="trashIcon"
+        onClick={() => dispatch({ type: "DELETE_NOTE", payload: { index } })}
+      />
     </div>
   );
 };

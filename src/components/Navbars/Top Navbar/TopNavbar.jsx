@@ -2,7 +2,7 @@ import "./Topnav.css";
 const TopNavbar = () => {
   return (
     <div className="topNavbar-Container">
-      <h1>I am top Nav</h1>
+      <h1 className="logoText">NotiFyi</h1>
     </div>
   );
 };

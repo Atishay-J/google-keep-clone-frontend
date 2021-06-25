@@ -2,12 +2,16 @@
   /* background: rgb(218, 218, 218); */
   max-width: 80%;
   margin: auto;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 1px 1px 10px -2px rgba(0, 0, 0, 0.342);
+  /* box-shadow: 1px 1px 10px -2px rgba(0, 0, 0, 0.342); */
   padding: 0.3rem;
   border-radius: 20px;
+  /* box-shadow: var(--box-shadow); */
+  /* background: linear-gradient(145deg, #232729, #1e2022); */
+  box-shadow: 9px 9px 17px #1b1e20, -9px -9px 17px #272a2c;
 }
 
 .noteTitleInput {
@@ -15,11 +19,15 @@
   outline: none;
   padding-left: 0.5rem;
   border: none;
-  font-size: 0.95rem;
   background-color: transparent;
-  color: #979797;
+  /* color: var(--font-col-gray); */
+  color: var(--font-col-white);
+  font-size: 0.92rem;
+  font-weight: 500;
 }
-
+.noteBody-Wrapper {
+  margin-top: 0.8rem;
+}
 .noteBodyInput {
   resize: none;
   overflow: hidden;
@@ -29,7 +37,10 @@
   height: 1.6rem;
   outline: none;
   border: none;
-  font-size: 0.95rem;
   background-color: transparent;
-  color: #979797;
+  /* color: var(--font-col-gray); */
+  font-family: var(--font-family-one);
+  color: var(--font-col-white);
+  font-size: 0.9rem;
+  font-weight: 700;
 }

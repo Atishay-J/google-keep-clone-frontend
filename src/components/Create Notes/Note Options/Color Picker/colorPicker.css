@@ -21,6 +21,8 @@
 .noteColorPickerIcon {
   font-size: 1.3rem;
   cursor: pointer;
+  color: var(--font-col-gray);
+  margin-right: 2rem;
 }
 
 .noteColorPicker-Wrapper:hover .noteColorPicker {

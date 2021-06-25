@@ -22,7 +22,7 @@ const notesReducer = (state, action) => {
     case "TOGGLE_PIN":
       console.log("Toggle Pinned Called", action.payload);
       const curNote = state[action.payload.index];
-      const filteredNotes = state.filter(
+      let filteredNotes = state.filter(
         (note, index) => index !== action.payload.index
       );
 
@@ -30,7 +30,12 @@ const notesReducer = (state, action) => {
         ...filteredNotes,
         { ...curNote, isPinned: action.payload.isPinned },
       ];
-
+    case "DELETE_NOTE":
+      console.log("Delete Called");
+      let remainingNotes = state.filter(
+        (note, index) => index !== action.payload.index
+      );
+      return remainingNotes;
     default:
       return state;
   }

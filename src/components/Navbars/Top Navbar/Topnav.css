@@ -1,4 +1,10 @@
 .topNavbar-Container {
   /* background: #000; */
-  background: rgb(151, 151, 151);
+  background: var(--bg-col);
+  color: rgba(241, 177, 56, 0.945);
+  padding-top: 0.5rem;
+}
+.logoText {
+  font-size: 1.5rem;
+  text-align: center;
 }

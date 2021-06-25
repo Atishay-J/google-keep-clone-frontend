@@ -1,7 +1,25 @@
 .noteCardContainer {
-  background: red;
+  background: var(--bg-col);
+  background: transparent;
   width: 23rem;
   border-radius: 20px;
-  padding: 10px;
   margin-top: 2rem;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  box-shadow: 9px 9px 19px #1b1e20, -9px -9px 19px #272a2c;
+}
+.trashIcon {
+  font-size: 1.2rem;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 1rem;
+}
+.noteCardTitle {
+  font-size: 0.85rem;
+}
+.noteCardNote {
+  font-size: 0.85rem;
+  margin-top: 1rem;
 }

@@ -6,19 +6,26 @@
 .notePinIcon {
   font-size: 1.15rem;
   cursor: pointer;
+  color: var(--font-col-white);
 }
 .notesOptions {
   justify-content: flex-end;
 }
 .noteSave-Wrapper {
   display: flex;
-  background: rgb(172, 103, 103);
+  /* background: rgb(172, 103, 103); */
   justify-content: center;
   justify-self: flex-end;
   align-self: flex-end;
 }
 .noteSave {
   border: none;
+  background: transparent;
+  /* color: var(--font-col-gray); */
+  /* color: #d75059; */
+  color: #9fc3d4;
+  font-size: 1rem;
+  font-weight: 700;
   width: 4rem;
   height: 1.5rem;
   cursor: pointer;
