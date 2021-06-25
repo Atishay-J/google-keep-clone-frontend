@@ -4,10 +4,10 @@ import "./colorPicker.css";
 
 const NoteColorPicker = ({ setNoteData }) => {
   const colors = [
-    { color: "red" },
+    { color: "#C42021" },
     { color: "green" },
-    { color: "pink" },
-    { color: "yellow" },
+    { color: "#8C7051" },
+    { color: "#F18F01" },
     { color: "blue" },
     { color: "peru" },
   ];
