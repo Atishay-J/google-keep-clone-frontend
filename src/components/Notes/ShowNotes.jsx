@@ -7,11 +7,11 @@ const ShowNotes = () => {
   const { state } = useNotes();
   console.log(
     "Found Pinned",
-    state?.find((note) => note.isPinned)
+    state.notes?.find((note) => note.isPinned)
   );
   return (
     <div className="showNotes-Container">
-      {state?.find((note) => note.isPinned) && <PinnedNotes />}
+      {state.notes?.find((note) => note.isPinned) && <PinnedNotes />}
 
       <RegularNotes />
     </div>

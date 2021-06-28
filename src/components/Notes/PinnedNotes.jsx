@@ -7,7 +7,7 @@ const PinnedNotes = () => {
     <div className="pinnedNotes-Container">
       <h1 className="notesSectionTitle">Pinned </h1>
       <div className="notesWrapper">
-        {state?.map(
+        {state.notes?.map(
           (note, index) =>
             note.isPinned && (
               <NoteCard

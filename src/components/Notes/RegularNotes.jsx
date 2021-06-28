@@ -7,7 +7,7 @@ const RegularNotes = () => {
     <div className="regularNotes-Container">
       <h1 className="notesSectionTitle">Others</h1>
       <div className="notesWrapper">
-        {state?.map(
+        {state.notes?.map(
           (note, index) =>
             note.isPinned === false && (
               <NoteCard
