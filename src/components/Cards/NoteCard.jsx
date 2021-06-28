@@ -1,6 +1,7 @@
 import { useNotes } from "../Context/NotesContext";
 import { Pin, PinFill, Trash } from "react-bootstrap-icons";
 import "./noteCard.css";
+import NoteColorPicker from "../Create Notes/Note Options/Color Picker/NoteColorPicker";
 
 const NoteCard = ({ title, note, isPinned, color, label, index }) => {
   const { dispatch } = useNotes();
@@ -29,6 +30,7 @@ const NoteCard = ({ title, note, isPinned, color, label, index }) => {
         className="trashIcon"
         onClick={() => dispatch({ type: "DELETE_NOTE", payload: { index } })}
       />
+      <NoteColorPicker />
     </div>
   );
 };

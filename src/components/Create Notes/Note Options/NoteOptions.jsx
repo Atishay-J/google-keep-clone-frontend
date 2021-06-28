@@ -1,7 +1,9 @@
 import { fakeServer } from "../../Utils/ServerCalls";
 import { useNotes } from "../../Context/NotesContext";
 import NoteColorPicker from "./Color Picker/NoteColorPicker";
+import Labels from "./Label Picker/Labels";
 import "./noteOptions.css";
+
 const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
   const { dispatch } = useNotes();
 
@@ -35,6 +37,7 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
       className="notesOptions"
       style={{ display: showNote ? "flex" : "none" }}
     >
+      <Labels />
       <NoteColorPicker setNoteData={setNoteData} />
       <div className="noteSave-Wrapper" onClick={saveNote}>
         <button className="noteSave">Save</button>

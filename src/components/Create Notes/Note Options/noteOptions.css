@@ -6,7 +6,8 @@
 .notePinIcon {
   font-size: 1.15rem;
   cursor: pointer;
-  color: var(--font-col-white);
+  /* color: var(--font-col-white); */
+  color: var(--icon-col);
 }
 .notesOptions {
   justify-content: flex-end;
@@ -23,7 +24,8 @@
   background: transparent;
   /* color: var(--font-col-gray); */
   /* color: #d75059; */
-  color: var(--font-col-white);
+  /* color: var(--font-col-white); */
+  color: var(--icon-col);
   font-size: 1rem;
   font-weight: 700;
   width: 4rem;

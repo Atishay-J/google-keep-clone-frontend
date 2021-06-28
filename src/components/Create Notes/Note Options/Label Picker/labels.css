@@ -1,0 +1,15 @@
+.labels-Container {
+  position: relative;
+}
+.labelList-Wrapper {
+  display: none;
+  position: absolute;
+  bottom: 2rem;
+}
+.label-Button {
+  background: yellow;
+}
+.labels-Container:hover .labelList-Wrapper {
+  display: block;
+  background: red;
+}
