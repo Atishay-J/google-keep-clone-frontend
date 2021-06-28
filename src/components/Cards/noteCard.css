@@ -16,6 +16,7 @@
   cursor: pointer;
   align-self: flex-end;
   margin-right: 1rem;
+  color: var(--icon-col);
 }
 .noteCardTitle {
   font-size: 0.85rem;

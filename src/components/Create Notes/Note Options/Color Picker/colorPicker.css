@@ -19,11 +19,11 @@
   left: -1rem;
 }
 .noteColorPickerIcon {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   cursor: pointer;
   /* color: var(--font-col-white); */
   color: var(--icon-col);
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
 }
 
 .noteColorPicker-Wrapper:hover .noteColorPicker {

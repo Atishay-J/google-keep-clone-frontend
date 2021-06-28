@@ -4,7 +4,18 @@
 .labelList-Wrapper {
   display: none;
   position: absolute;
-  bottom: 2rem;
+  bottom: 1.6rem;
+  left: -0.8rem;
+  min-width: 6rem;
+  padding: 1rem;
+  border-radius: 20px;
+}
+.labelList {
+  overflow-y: auto;
+  max-height: 4.1rem;
+}
+.labelListItem {
+  font-size: 0.8rem;
 }
 .label-Button {
   background: yellow;
@@ -12,4 +23,52 @@
 .labels-Container:hover .labelList-Wrapper {
   display: block;
   background: red;
+}
+.labelIcon {
+  font-size: 1.25rem;
+  color: var(--icon-col);
+}
+.newLabelIcon-Wrapper {
+  width: 100%;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  white-space: nowrap;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--font-col-gold-light);
+  padding-top: 0.4rem;
+  cursor: pointer;
+}
+.newLabelIcon-Wrapper:hover {
+  color: white;
+}
+.newLabelIcon {
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+}
+.newLabelInput-Wrapper {
+  display: flex;
+  /* flex-wrap: wrap; */
+  align-items: center;
+  justify-content: center;
+  /* display: none; */
+  margin-top: 0.5rem;
+}
+.newLabelInput {
+  /* width: 5rem; */
+  font-size: 0.8rem;
+  height: 1.3rem;
+  border: none;
+  padding-left: 0.3rem;
+  outline: none;
+}
+.newLabelInputBtn {
+  border: none;
+  font-size: 0.8rem;
+  width: 3rem;
+  height: 1.3rem;
+  background: var(--font-col-gold);
+  color: var(--font-col-white);
 }

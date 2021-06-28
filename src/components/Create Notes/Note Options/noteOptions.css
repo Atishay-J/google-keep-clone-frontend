@@ -6,25 +6,26 @@
 .notePinIcon {
   font-size: 1.15rem;
   cursor: pointer;
-  /* color: var(--font-col-white); */
   color: var(--icon-col);
 }
-.notesOptions {
-  justify-content: flex-end;
+.notesOptions-Container {
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 0.2rem;
+  margin-top: 1rem;
+}
+.noteOptions {
+  display: flex;
+  justify-content: space-between;
+  min-width: 3.5rem;
 }
 .noteSave-Wrapper {
   display: flex;
-  /* background: rgb(172, 103, 103); */
   justify-content: center;
-  justify-self: flex-end;
-  align-self: flex-end;
 }
 .noteSave {
   border: none;
   background: transparent;
-  /* color: var(--font-col-gray); */
-  /* color: #d75059; */
-  /* color: var(--font-col-white); */
   color: var(--icon-col);
   font-size: 1rem;
   font-weight: 700;

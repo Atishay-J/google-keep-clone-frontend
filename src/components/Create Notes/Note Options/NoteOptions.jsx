@@ -34,11 +34,13 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
   };
   return (
     <div
-      className="notesOptions"
+      className="notesOptions-Container"
       style={{ display: showNote ? "flex" : "none" }}
     >
-      <Labels />
-      <NoteColorPicker setNoteData={setNoteData} />
+      <div className="noteOptions">
+        <Labels setNoteData={setNoteData} />
+        <NoteColorPicker setNoteData={setNoteData} />
+      </div>
       <div className="noteSave-Wrapper" onClick={saveNote}>
         <button className="noteSave">Save</button>
       </div>
