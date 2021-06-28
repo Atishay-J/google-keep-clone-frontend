@@ -1,7 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
 import { getNotes, saveNote } from "../Utils/ServerCalls";
 
-const initState = [];
+const initState = { notes: [], labels: [] };
 
 const notesReducer = (state, action) => {
   console.log("Action Called", action);
@@ -9,33 +9,51 @@ const notesReducer = (state, action) => {
 
   switch (action.type) {
     case "SAVE_NOTE":
-      return [
+      return {
         ...state,
-        {
-          noteTitle: action.payload.noteTitle,
-          noteText: action.payload.noteText,
-          label: action.payload.label,
-          isPinned: action.payload.isPinned,
-          noteColor: action.payload.noteColor,
-        },
-      ];
+        notes: [
+          ...state.notes,
+          {
+            noteTitle: action.payload.noteTitle,
+            noteText: action.payload.noteText,
+            label: action.payload.label,
+            isPinned: action.payload.isPinned,
+            noteColor: action.payload.noteColor,
+          },
+        ],
+      };
     case "TOGGLE_PIN":
       console.log("Toggle Pinned Called", action.payload);
-      const curNote = state[action.payload.index];
-      let filteredNotes = state.filter(
+
+      const curNote = state.notes[action.payload.index];
+
+      let filteredNotes = state.notes.filter(
         (note, index) => index !== action.payload.index
       );
 
-      return [
-        ...filteredNotes,
-        { ...curNote, isPinned: action.payload.isPinned },
-      ];
+      return {
+        ...state,
+        notes: [
+          ...filteredNotes,
+          { ...curNote, isPinned: action.payload.isPinned },
+        ],
+      };
+
     case "DELETE_NOTE":
-      console.log("Delete Called");
-      let remainingNotes = state.filter(
+      console.log(
+        "Delete Called",
+        state.notes.filter((note, index) => index !== action.payload.index)
+      );
+      let remainingNotes = state.notes.filter(
         (note, index) => index !== action.payload.index
       );
-      return remainingNotes;
+      console.log("REmaining Noteees", remainingNotes);
+      return { ...state, notes: remainingNotes };
+
+    case "CREATE_LABEL":
+      console.log("New Label Created", action.payload);
+      return { ...state, labels: [...state.labels, action.payload.label] };
+
     default:
       return state;
   }
