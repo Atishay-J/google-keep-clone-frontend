@@ -23,7 +23,6 @@ const CreateNote = () => {
   };
 
   useEffect(() => {
-    console.log("******* New Note Data Got ******", noteData);
     adjustNoteHeight();
   }, [noteData]);
 

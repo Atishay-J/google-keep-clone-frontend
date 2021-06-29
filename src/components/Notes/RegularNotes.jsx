@@ -2,7 +2,6 @@ import { useNotes } from "../Context/NotesContext";
 import { NoteCard } from "../index";
 const RegularNotes = () => {
   const { state } = useNotes();
-  console.log("State is ", state);
   return (
     <div className="regularNotes-Container">
       <h1 className="notesSectionTitle">Others</h1>

@@ -6,8 +6,6 @@ import NoteColorPicker from "../Create Notes/Note Options/Color Picker/NoteColor
 const NoteCard = ({ title, note, isPinned, color, label, index }) => {
   const { dispatch } = useNotes();
 
-  console.log("State Label", label);
-
   return (
     <div className="noteCardContainer" style={{ background: color }}>
       <div

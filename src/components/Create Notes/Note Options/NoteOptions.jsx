@@ -11,7 +11,6 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
     fakeServer(noteData.title, noteData.note).then((res) => {
       console.log("Response from server", res);
       if (res.status === 200) {
-        console.log("Note saved");
         dispatch({
           type: "SAVE_NOTE",
           payload: {

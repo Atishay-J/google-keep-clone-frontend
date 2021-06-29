@@ -4,8 +4,8 @@ import { getNotes, saveNote } from "../Utils/ServerCalls";
 const initState = { notes: [], labels: [] };
 
 const notesReducer = (state, action) => {
-  console.log("Action Called", action);
-  console.log("state from context", state);
+  // console.log("Action Called", action);
+  // console.log("state from context", state);
 
   switch (action.type) {
     case "SAVE_NOTE":

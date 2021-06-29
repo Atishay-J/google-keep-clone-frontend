@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tag, PlusCircle } from "react-bootstrap-icons";
 import { useNotes } from "../../../Context/NotesContext";
 import "./labels.css";
@@ -20,21 +20,22 @@ const Labels = ({ setNoteData }) => {
     if (newLabelName === "") {
       return setShowCreateLabel(false);
     }
-    console.log("Saveddd");
     dispatch({ type: "CREATE_LABEL", payload: { label: newLabelName } });
     setNewLabelName("");
     setShowCreateLabel(false);
   };
 
   const selectLabelName = (labelName) => {
-    console.log("Naaaaya Naaaam", labelName);
-
     setNoteData((prevState) => {
       return { ...prevState, label: labelName };
     });
     setShowLabelList(false);
     setSelectedLabel(labelName);
   };
+
+  useEffect(() => {
+    setSelectedLabel("");
+  }, [state.notes]);
 
   return (
     <div className="labels-Container">

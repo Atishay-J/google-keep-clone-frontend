@@ -4,7 +4,7 @@ import "./Topnav.css";
 const TopNavbar = () => {
   return (
     <div className="topNavbar-Container">
-      <List className="menuIcon" />
+      {/* <List className="menuIcon" /> */}
       <h1 className="logoText">NotiFyi</h1>
     </div>
   );

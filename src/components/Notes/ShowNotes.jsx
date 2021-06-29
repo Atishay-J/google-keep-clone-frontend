@@ -5,10 +5,7 @@ import "./notes.css";
 
 const ShowNotes = () => {
   const { state } = useNotes();
-  console.log(
-    "Found Pinned",
-    state.notes?.find((note) => note.isPinned)
-  );
+
   return (
     <div className="showNotes-Container">
       {state.notes?.find((note) => note.isPinned) && <PinnedNotes />}
