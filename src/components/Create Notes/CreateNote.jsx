@@ -14,10 +14,6 @@ const CreateNote = () => {
     isPinned: false,
   });
 
-  useEffect(() => {
-    console.log("******* New Note Data Got ******", noteData);
-  }, [noteData]);
-
   let noteRef = useRef(null);
 
   const adjustNoteHeight = () => {
@@ -25,6 +21,11 @@ const CreateNote = () => {
     let scrollHeight = noteRef.scrollHeight;
     noteRef.style.height = scrollHeight + "px";
   };
+
+  useEffect(() => {
+    console.log("******* New Note Data Got ******", noteData);
+    adjustNoteHeight();
+  }, [noteData]);
 
   return (
     <div
@@ -56,7 +57,6 @@ const CreateNote = () => {
           ref={(ref) => (noteRef = ref)}
           onChange={(e) =>
             setNoteData((prevData) => {
-              adjustNoteHeight();
               return { ...prevData, note: e.target.value };
             })
           }
