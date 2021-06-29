@@ -9,24 +9,57 @@
   min-width: 6rem;
   padding: 1rem;
   border-radius: 20px;
+
+  background: #1d1c1c;
 }
 .labelList {
   overflow-y: auto;
   max-height: 4.1rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+  -webkit-scrollbar-width: thin;
+}
+.labelList::-webkit-scrollbar {
+  width: 5px;
+  background: rgb(34, 34, 34);
+  border-radius: 20px;
+}
+.labelList::-webkit-scrollbar-thumb {
+  background: rgb(61, 61, 61);
+  border-radius: 10px;
 }
 .labelListItem {
   font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.1rem 0.3rem 0.8rem;
+  /* background: rgb(95, 95, 29); */
+  margin-top: 0.5rem;
+  transition: 0.3s ease-in-out;
 }
-.label-Button {
-  background: yellow;
+.labelListItem:hover {
+  background: var(--font-col-gold-light);
+  border-radius: 20px;
+  cursor: pointer;
 }
-.labels-Container:hover .labelList-Wrapper {
-  display: block;
-  background: red;
+.labelButton {
+  /* background: rgb(194, 194, 170); */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  padding: 0.1rem 0.4rem 0.1rem 0.4rem;
+  box-shadow: 4px 2px 10px -3px rgba(0, 0, 0, 0.274);
 }
+
 .labelIcon {
   font-size: 1.25rem;
   color: var(--icon-col);
+}
+.selectedLabelName {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
 }
 .newLabelIcon-Wrapper {
   width: 100%;
@@ -36,7 +69,7 @@
   /* justify-content: space-evenly; */
   white-space: nowrap;
   font-weight: 600;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   border-top: 1px solid var(--font-col-gold-light);
   padding-top: 0.4rem;
   cursor: pointer;
@@ -54,15 +87,19 @@
   align-items: center;
   justify-content: center;
   /* display: none; */
-  margin-top: 0.5rem;
+  margin-top: 0.8rem;
 }
 .newLabelInput {
   /* width: 5rem; */
   font-size: 0.8rem;
   height: 1.3rem;
   border: none;
-  padding-left: 0.3rem;
+  border-radius: 20px 0px 0px 20px;
+  padding-left: 0.5rem;
   outline: none;
+  background: #222020;
+  box-shadow: inset 7px 7px 14px #161616, inset -7px -7px 14px #242222;
+  color: var(--font-col-white);
 }
 .newLabelInputBtn {
   border: none;
@@ -71,4 +108,7 @@
   height: 1.3rem;
   background: var(--font-col-gold);
   color: var(--font-col-white);
+  border-radius: 0px 20px 20px 0px;
+  padding-right: 0.3rem;
+  cursor: pointer;
 }

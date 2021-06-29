@@ -40,19 +40,23 @@ const notesReducer = (state, action) => {
       };
 
     case "DELETE_NOTE":
-      console.log(
-        "Delete Called",
-        state.notes.filter((note, index) => index !== action.payload.index)
-      );
       let remainingNotes = state.notes.filter(
         (note, index) => index !== action.payload.index
       );
-      console.log("REmaining Noteees", remainingNotes);
+
       return { ...state, notes: remainingNotes };
 
     case "CREATE_LABEL":
       console.log("New Label Created", action.payload);
       return { ...state, labels: [...state.labels, action.payload.label] };
+
+    case "CHANGE_NOTE_COLOR":
+      let curIndex = action.payload.index;
+
+      state.notes[curIndex].noteColor = action.payload.color;
+      return {
+        ...state,
+      };
 
     default:
       return state;

@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./createNotes.css";
 
 import NoteOptions from "./Note Options/NoteOptions";
@@ -10,8 +10,13 @@ const CreateNote = () => {
     title: "",
     note: "",
     color: "",
+    label: "",
     isPinned: false,
   });
+
+  useEffect(() => {
+    console.log("******* New Note Data Got ******", noteData);
+  }, [noteData]);
 
   let noteRef = useRef(null);
 

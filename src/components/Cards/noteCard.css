@@ -10,7 +10,16 @@
   border: none;
   box-shadow: 9px 9px 19px #1b1e20, -9px -9px 19px #272a2c;
 }
-
+.noteCardOptions-Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.noteCardOptions {
+  display: flex;
+  align-items: center;
+}
 .trashIcon {
   font-size: 1.2rem;
   cursor: pointer;
@@ -22,6 +31,7 @@
   font-size: 0.85rem;
 }
 .noteCardNote {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   margin-top: 1rem;
 }

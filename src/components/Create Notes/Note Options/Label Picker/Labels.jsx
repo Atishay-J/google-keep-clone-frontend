@@ -3,9 +3,12 @@ import { Tag, PlusCircle } from "react-bootstrap-icons";
 import { useNotes } from "../../../Context/NotesContext";
 import "./labels.css";
 
-const Labels = () => {
+const Labels = ({ setNoteData }) => {
   const [showCreateLabel, setShowCreateLabel] = useState(false);
+  const [showLabelList, setShowLabelList] = useState(false);
   const [newLabelName, setNewLabelName] = useState("");
+  const [selectedLabel, setSelectedLabel] = useState("");
+
   const { state, dispatch } = useNotes();
 
   const newLabelInput = (e) => {
@@ -20,14 +23,32 @@ const Labels = () => {
     console.log("Saveddd");
     dispatch({ type: "CREATE_LABEL", payload: { label: newLabelName } });
     setNewLabelName("");
+    setShowCreateLabel(false);
+  };
+
+  const selectLabelName = (labelName) => {
+    console.log("Naaaaya Naaaam", labelName);
+
+    setNoteData((prevState) => {
+      return { ...prevState, label: labelName };
+    });
+    setShowLabelList(false);
+    setSelectedLabel(labelName);
   };
 
   return (
     <div className="labels-Container">
-      <div className="labelList-Wrapper">
+      <div
+        className="labelList-Wrapper"
+        style={{ display: showLabelList ? "block" : "none" }}
+      >
         <ol className="labelList">
           {state.labels.map((label, index) => (
-            <li key={index} className="labelListItem">
+            <li
+              key={index}
+              className="labelListItem"
+              onClick={() => selectLabelName(label)}
+            >
               {label}
             </li>
           ))}
@@ -55,8 +76,12 @@ const Labels = () => {
           </button>
         </div>
       </div>
-      <div className="label-button">
+      <div
+        className="labelButton"
+        onClick={() => setShowLabelList((prevState) => !prevState)}
+      >
         <Tag className="labelIcon" />
+        {selectedLabel && <p className="selectedLabelName">{selectedLabel}</p>}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
   height: auto;
   background-color: transparent;
   position: relative;
+  margin-left: 1rem;
 }
 
 .noteColorPicker {

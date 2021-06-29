@@ -1,10 +1,12 @@
 import { useNotes } from "../Context/NotesContext";
-import { Pin, PinFill, Trash } from "react-bootstrap-icons";
+import { Pin, PinFill, Trash, Tag } from "react-bootstrap-icons";
 import "./noteCard.css";
 import NoteColorPicker from "../Create Notes/Note Options/Color Picker/NoteColorPicker";
 
 const NoteCard = ({ title, note, isPinned, color, label, index }) => {
   const { dispatch } = useNotes();
+
+  console.log("State Label", label);
 
   return (
     <div className="noteCardContainer" style={{ background: color }}>
@@ -25,12 +27,20 @@ const NoteCard = ({ title, note, isPinned, color, label, index }) => {
       </div>
 
       <h1 className="noteCardTitle">{title}</h1>
-      <h3 className="noteCardNote">{note}</h3>
-      <Trash
-        className="trashIcon"
-        onClick={() => dispatch({ type: "DELETE_NOTE", payload: { index } })}
-      />
-      <NoteColorPicker />
+      <p className="noteCardNote">{note}</p>
+      <div className="noteCardOptions-Container">
+        <div className="noteCardOptions">
+          <div className="labelButton">
+            <Tag className="labelIcon" />
+            {label && <p className="selectedLabelName">{label}</p>}
+          </div>
+          <NoteColorPicker index={index} />
+        </div>
+        <Trash
+          className="trashIcon"
+          onClick={() => dispatch({ type: "DELETE_NOTE", payload: { index } })}
+        />
+      </div>
     </div>
   );
 };

@@ -10,6 +10,7 @@
 }
 .notesOptions-Container {
   justify-content: space-between;
+  align-items: center;
   padding-left: 1rem;
   padding-right: 0.2rem;
   margin-top: 1rem;
@@ -17,6 +18,7 @@
 .noteOptions {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   min-width: 3.5rem;
 }
 .noteSave-Wrapper {

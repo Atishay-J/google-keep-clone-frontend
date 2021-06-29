@@ -18,6 +18,7 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
             noteTitle: noteData.title,
             noteText: noteData.note,
             noteColor: noteData.color,
+            label: noteData.label,
             isPinned: noteData.isPinned,
           },
         });
@@ -28,6 +29,7 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
       title: "",
       note: "",
       color: "",
+      label: "",
       isPinned: false,
     });
     setShowNote(false);
