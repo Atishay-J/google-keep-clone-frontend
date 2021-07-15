@@ -1,7 +1,31 @@
 import { createContext, useContext, useReducer } from "react";
 import { getNotes, saveNote } from "../Utils/ServerCalls";
 
-const initState = { notes: [], labels: [] };
+const initNotes = [
+  {
+    isPinned: false,
+    label: "books",
+    noteColor: "#C42021",
+    noteText: " Harry Potter and the Goblet of Fire.",
+    noteTitle: "Books",
+  },
+  {
+    isPinned: true,
+    label: "code",
+    noteColor: "#F18F01",
+    noteText: "Refactor the code of new app",
+    noteTitle: "Todo",
+  },
+  {
+    isPinned: true,
+    label: "",
+    noteColor: "blue",
+    noteText: "Done with the lastest app",
+    noteTitle: "Apps checklist",
+  },
+];
+
+const initState = { notes: [...initNotes], labels: [] };
 
 const notesReducer = (state, action) => {
   // console.log("Action Called", action);
@@ -9,6 +33,8 @@ const notesReducer = (state, action) => {
 
   switch (action.type) {
     case "SAVE_NOTE":
+      console.log("actionnss", action.payload);
+
       return {
         ...state,
         notes: [

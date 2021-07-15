@@ -5,7 +5,7 @@ const Dashboard = () => {
       <TopNavbar />
       <CreateNote />
       <ShowNotes />
-      <BottomNavbar />
+      {/* <BottomNavbar /> */}
     </div>
   );
 };

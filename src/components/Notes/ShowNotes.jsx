@@ -10,7 +10,11 @@ const ShowNotes = () => {
     <div className="showNotes-Container">
       {state.notes?.find((note) => note.isPinned) && <PinnedNotes />}
 
-      <RegularNotes />
+      {state.notes.length ? (
+        <RegularNotes />
+      ) : (
+        <h2 className="noNotesAvailable-Heading">No notes to show</h2>
+      )}
     </div>
   );
 };

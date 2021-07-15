@@ -20,3 +20,10 @@
   font-size: 0.75rem;
   font-weight: 700;
 }
+.noNotesAvailable-Heading {
+  /* color: red; */
+  font-size: 1.3rem;
+  text-align: center;
+  margin-top: 6rem;
+  color: #4e4e4e;
+}

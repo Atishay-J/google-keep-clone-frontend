@@ -8,6 +8,10 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
   const { dispatch } = useNotes();
 
   const saveNote = () => {
+    if (noteData.note === "") {
+      return setShowNote(false);
+    }
+
     fakeServer(noteData.title, noteData.note).then((res) => {
       console.log("Response from server", res);
       if (res.status === 200) {
@@ -43,7 +47,9 @@ const NoteOptions = ({ showNote, noteData, setShowNote, setNoteData }) => {
         <NoteColorPicker setNoteData={setNoteData} />
       </div>
       <div className="noteSave-Wrapper" onClick={saveNote}>
-        <button className="noteSave">Save</button>
+        <button className="noteSave">
+          {noteData.note ? "Save" : "cancel"}
+        </button>
       </div>
     </div>
   );

@@ -44,3 +44,10 @@
   font-size: 0.9rem;
   font-weight: 700;
 }
+
+@media screen and (min-width: 600px) {
+  .createNote-Container {
+    /* background: red; */
+    width: 50%;
+  }
+}

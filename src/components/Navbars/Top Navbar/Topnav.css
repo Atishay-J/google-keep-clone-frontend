@@ -1,13 +1,15 @@
 .topNavbar-Container {
   /* background: #000; */
   background: var(--bg-col);
-  color: rgba(241, 177, 56, 0.945);
+
   padding-top: 0.5rem;
   display: flex;
 }
 .logoText {
   font-size: 1.5rem;
   text-align: center;
+  color: rgba(241, 177, 56, 0.945);
+
   margin: auto;
 }
 .menuIcon {
